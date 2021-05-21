@@ -27,7 +27,13 @@ class Storage {
 				console.log(err);
 			});
 	}
-	static async downloadFile(file) {}
+	static downloadFile(key) {
+		const downloadParams = {
+			Key: key,
+			Bucket: bucketName,
+		};
+		return s3.getObject(downloadParams).createReadStream();
+	}
 }
 
 export default Storage;
