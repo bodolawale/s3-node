@@ -1,6 +1,6 @@
-import StorageService from "./storage/s3.js";
+import StorageService from "../storage/s3.js";
 
-class ImageUpload {
+class ImageController {
 	static async uploadImage(req, res) {
 		await StorageService.uploadFile(req.file);
 		return res.status(200).send({ message: "Image uploaded successfully" });
@@ -16,4 +16,4 @@ class ImageUpload {
 	}
 }
 
-export default ImageUpload;
+export default ImageController;
